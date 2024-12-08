@@ -1,0 +1,65 @@
+node_modules/
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Entorno local
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Directorios de dependencias
+node_modules/
+
+# Directorios de construcción
+build/
+dist/
+out/
+
+# Archivos de sistema
+.DS_Store
+Thumbs.db
+
+# Directorios de IDEs y editores
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# Archivos de bloqueo
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Cachés de paquetes
+.pnpm/
+.cache/
+.npm/
+.yarn/
+
+# Cobertura de pruebas
+coverage/
+
+# Otros archivos y directorios
+*.tgz
+*.lock
+*.bak
+*.tmp
+
+# Ignorar archivos de configuración específicos
+.eslintcache
+.stylelintcache
+
+# Ignorar archivos temporales de la terminal
+*.sh~
+
+# Ignorar archivos de empaquetado
+*.zip
+*.tar.gz

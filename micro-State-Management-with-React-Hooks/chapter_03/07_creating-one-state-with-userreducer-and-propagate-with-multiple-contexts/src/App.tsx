@@ -6,7 +6,7 @@ import {
   useReducer,
 } from "react";
 
-type Action = { type: "INC1" } | { type: "INC2" };
+type Action = { type: "INC1" } | { type: "INC2" } | { type: "INC_BOTH" };
 
 const Count1Context = createContext<number>(0);
 const Count2Context = createContext<number>(0);
@@ -34,12 +34,22 @@ const Counter2 = () => {
   );
 };
 
+const CounterBoth = () => {
+  const dispatch = useContext(DispatchContext);
+  return (
+    <div>
+      <button onClick={() => dispatch({ type: "INC_BOTH" })}>+1 Both</button>
+    </div>
+  );
+};
+
 const Parent = () => (
   <div>
     <Counter1 />
     <Counter1 />
     <Counter2 />
     <Counter2 />
+    <CounterBoth />
   </div>
 );
 
@@ -51,6 +61,9 @@ const Provider = ({ children }: { children: ReactNode }) => {
       }
       if (action.type === "INC2") {
         return { ...prev, count2: prev.count2 + 1 };
+      }
+      if (action.type === "INC_BOTH") {
+        return { count1: prev.count1 + 1, count2: prev.count2 + 1 };
       }
       throw new Error("no matching action");
     },
